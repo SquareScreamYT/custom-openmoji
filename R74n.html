@@ -1,171 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R74n in Every Font</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
-    <style>
-      body {
-      margin: 0;
-      padding: 40px;
-      background-color: #000;
-      color: #fff;
-      font-family: 'Nunito', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      }
-      .controls {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
-      }
-      .controls input, .controls button {
-      padding: 8px 12px;
-      font-size: 1em;
-      border-radius: 8px;
-      border: 1px solid #f0f;
-      background-color: #111;
-      color: #fff;
-      outline: none;
-      }
-      .controls input::placeholder {
-      color: #555;
-      }
-      .controls input:focus {
-      border-color: #f0f;
-      }
-      .controls button {
-      cursor: pointer;
-      background-color: #f0f;
-      color: #000;
-      border: none;
-      transition: 0.2s;
-      }
-      .box {
-      width: 200px;
-      height: 200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: stretch;
-      font-family: var(--custom-font, 'Nunito', sans-serif);
-      border-radius: 16px;
-      border: 1px solid #f0f;
-      padding: 16px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      }
-      .font-name {
-      font-family: var(--custom-font, 'Nunito', sans-serif);
-      text-align: center;
-      margin-bottom: 12px;
-      font-weight: bold;
-      font-size: 1.2em;
-      color: #fff;
-      }
-      .numbers {
-      flex: 1;
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      }
-      .left {
-      font-family: var(--custom-font, 'Nunito', sans-serif);
-      display: flex;
-      align-items: center;
-      font-size: 9em;
-      line-height: 1;
-      color: #0ff;
-      margin-left: 20px;
-      }
-      .right {
-      font-family: var(--custom-font, 'Nunito', sans-serif);
-      margin-top: 15px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      text-align: right;
-      font-size: 2.5em;
-      line-height: 1;
-      color: #0ff;
-      margin-right: 20px;
-      }
-      .right div {
-      margin-bottom: -.1em;
-      }
-      h1 {
-      color: #0ff;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>R74n in Every Font</h1>
-    <div class="controls">
-      <input type="text" id="fontUrl" placeholder="fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" size="50">
-      <input type="file" id="fontFile" accept=".ttf,.otf,.woff,.woff2">
-      <button onclick="loadFont()">Load Font</button>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R74n in Every Font</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+
+<style>
+  :root {
+    --custom-font: 'Nunito', sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 40px;
+    background-color: #000;
+    color: #fff;
+    font-family: var(--custom-font);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  h1 {
+    color: #0ff;
+  }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .controls input, .controls button {
+    padding: 8px 12px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid #f0f;
+    background-color: #111;
+    color: #fff;
+    outline: none;
+  }
+
+  .controls input::placeholder {
+    color: #555;
+  }
+
+  .controls input:focus {
+    border-color: #f0f;
+  }
+
+  .controls button {
+    cursor: pointer;
+    background-color: #f0f;
+    color: #000;
+    border: none;
+    transition: 0.2s;
+  }
+
+  .box {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    font-family: var(--custom-font);
+    border-radius: 16px;
+    border: 1px solid #f0f;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .font-name {
+    font-family: var(--custom-font);
+    text-align: center;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #fff;
+  }
+
+  .numbers {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  .left {
+    font-family: var(--custom-font);
+    display: flex;
+    align-items: center;
+    font-size: 9em;
+    line-height: 1;
+    color: #0ff;
+    margin-left: 20px;
+  }
+
+  .right {
+    font-family: var(--custom-font);
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: right;
+    font-size: 2.5em;
+    line-height: 1;
+    color: #0ff;
+    margin-right: 20px;
+  }
+  
+  .right div {
+    margin-bottom: -.1em;
+  }
+</style>
+</head>
+<body>
+
+<h1>R74n in Every Font</h1>
+
+<div class="controls">
+  <input type="text" id="fontUrl" placeholder="Google Fonts URL" size="50">
+  <input type="file" id="fontFile" accept=".ttf,.otf,.woff,.woff2">
+  <button onclick="loadFont()">Load Font</button>
+</div>
+
+<div class="box">
+  <div class="font-name" id="fontName">Nunito</div>
+  <div class="numbers">
+    <div class="left">R</div>
+    <div class="right">
+      <div>7</div>
+      <div>4</div>
+      <div>n</div>
     </div>
-    <div class="box">
-      <div class="font-name" id="fontName">Nunito</div>
-      <div class="numbers">
-        <div class="left">R</div>
-        <div class="right">
-          <div>7</div>
-          <div>4</div>
-          <div>n</div>
-        </div>
-      </div>
-    </div>
-    <script>
-      function loadFont() {
-        const urlInput = document.getElementById("fontUrl").value.trim();
-        const fileInput = document.getElementById("fontFile").files[0];
-        const fontNameLabel = document.getElementById("fontName");
-      
-        if (fileInput) {
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            const fontFamily = fileInput.name.replace(/\.[^/.]+$/, "");
-            const font = new FontFace(fontFamily, e.target.result);
-            font.load().then(f => {
-              document.fonts.add(f);
-              document.body.style.fontFamily = f.family;
-              fontNameLabel.textContent = f.family;
-            });
-          };
-          reader.readAsArrayBuffer(fileInput);
-        } else if (urlInput) {
-          if (urlInput.endsWith(".css") || urlInput.includes("fonts.googleapis.com")) {
-            const link = document.createElement("link");
-            link.rel = "stylesheet";
-            link.href = urlInput;
-            document.head.appendChild(link);
-      
-            let fontFamily = "CustomFont";
-            const match = urlInput.match(/family=([^:&]+)/);
-            if (match) {
-              fontFamily = decodeURIComponent(match[1]).replace(/\+/g, " ");
-            }
-      
-            document.body.style.fontFamily = fontFamily;
-            fontNameLabel.textContent = fontFamily;
-          } else {
-            const name = urlInput.split("/").pop().split(".")[0];
-            const font = new FontFace(name, `url(${urlInput})`);
-            font.load().then(f => {
-              document.fonts.add(f);
-              document.body.style.fontFamily = f.family;
-              fontNameLabel.textContent = f.family;
-            });
-          }
-        }
-      }
-    </script>
-  </body>
+  </div>
+</div>
+
+<script>
+function loadFont() {
+  const urlInput = document.getElementById("fontUrl").value.trim();
+  const fileInput = document.getElementById("fontFile").files[0];
+  const fontNameLabel = document.getElementById("fontName");
+
+  if (fileInput) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const fontFamily = fileInput.name.replace(/\.[^/.]+$/, "");
+      const font = new FontFace(fontFamily, e.target.result);
+      font.load().then(f => {
+        document.fonts.add(f);
+        document.documentElement.style.setProperty('--custom-font', f.family);
+        fontNameLabel.textContent = f.family;
+      }).catch(err => console.error("Font load error:", err));
+    };
+    reader.readAsArrayBuffer(fileInput);
+
+  } else if (urlInput) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = urlInput;
+    document.head.appendChild(link);
+
+    let fontFamily = "CustomFont";
+    const match = urlInput.match(/family=([^:&]+)/);
+    if (match) {
+      fontFamily = decodeURIComponent(match[1]).replace(/\+/g, " ");
+    }
+
+    document.fonts.load(`1em ${fontFamily}`).then(() => {
+      document.documentElement.style.setProperty('--custom-font', fontFamily);
+      fontNameLabel.textContent = fontFamily;
+    }).catch(err => console.error("Font load error:", err));
+  }
+}
+</script>
+
+</body>
 </html>
